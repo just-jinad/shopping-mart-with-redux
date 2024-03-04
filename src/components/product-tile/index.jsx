@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart } from "../../store/slices/cart-slice";
+import { addToCart, removeFromCart } from "../../store/slices/cart-slice";
 
 const ProductTile = ({ product }) => {
   const { cart } = useSelector((state) => state);
@@ -11,7 +11,9 @@ const ProductTile = ({ product }) => {
 
   function handleRemove() {
     console.log("has been removed");
+    dispatch(removeFromCart(product.id))
   }
+
   return (
     <>
       <div>
